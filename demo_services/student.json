@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "name": "Eric",
+    "class": [
+      "TILLETT"
+    ],
+    "age": 10,
+    "number": "1111111"
+  },
+  {
+    "id": 2,
+    "name": "Jason",
+    "class": [
+      "TILLETT",
+      "SANTA FE"
+    ],
+    "age": 11,
+    "number": "2222222"
+  }
+]
