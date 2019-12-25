@@ -5,8 +5,7 @@
     "class": [
       "TILLETT"
     ],
-    "age": 10,
-    "number": "1111111"
+    "age": 10
   },
   {
     "id": 2,
@@ -15,7 +14,6 @@
       "TILLETT",
       "SANTA FE"
     ],
-    "age": 11,
-    "number": "2222222"
+    "age": 11
   }
 ]
