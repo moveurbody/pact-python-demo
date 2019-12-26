@@ -1,0 +1,10 @@
+pactbroker / pactbroker
+
+PUT http://127.0.0.1/pacts/provider/TeacherInfoService/consumer/EducationService/version/0.0.0.3
+
+sh verify_teacher.sh 0.0.0.1
+
+
+PUT http://127.0.0.1/pacts/provider/StudentInfoService/consumer/EducationService/version/0.0.0.3
+
+sh verify_student.sh 0.0.0.1
