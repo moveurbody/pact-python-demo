@@ -13,6 +13,35 @@ app = Flask(__name__)
 Swagger(app)
 
 
+# Generate data as database
+@app.route('/api/students/init', methods=['POST'])
+def init():
+    data = [
+        {
+            "id": 1,
+            "name": "Eric",
+            "class": [
+                "TILLETT"
+            ],
+            "age": 10
+        },
+        {
+            "id": 2,
+            "name": "Jason",
+            "class": [
+                "TILLETT",
+                "SANTA FE"
+            ],
+            "age": 11
+        }
+    ]
+
+    with open("teacher.json", "w") as json_file:
+        json.dump(data, json_file)
+
+    return jsonify({"states": "OK"})
+
+
 @app.route('/api/students/', methods=['GET'])
 def students():
     """
