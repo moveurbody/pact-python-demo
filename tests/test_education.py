@@ -75,8 +75,7 @@ def test_get_all_teachers(pact_teacher):
 
     expected = EachLike({
         'id': SomethingLike(1),
-        'name': SomethingLike("Doris Wilson"),
-        'class': EachLike(('TILLETT')),
+        'name': SomethingLike("Doris Wilson")
     })
 
     (pact_teacher.given('some teachers information exist')
@@ -93,8 +92,7 @@ def test_get_exist_teacher_information_by_id(pact_teacher):
 
     expected = SomethingLike({
         'id': SomethingLike(1),
-        'name': SomethingLike("Doris Wilson"),
-        'class': EachLike(('TILLETT')),
+        'name': SomethingLike("Doris Wilson")
     })
 
     (pact_teacher.given('teacher id is existed')
@@ -118,3 +116,5 @@ def test_get_non_exist_teacher_information_by_id(pact_teacher):
 
     with pact_teacher:
         results = requests.get(request_url)
+
+    assert results.text == "{}"
