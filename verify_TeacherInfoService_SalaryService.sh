@@ -6,9 +6,8 @@ if [ -x $VERSION ]; then
 fi
 
 pipenv run pact-verifier --provider-base-url=http://localhost:8001 \
-  --pact-url="http://127.0.0.1/pacts/provider/TeacherInfoService/consumer/Salary/latest" \
+  --pact-url="http://127.0.0.1/pacts/provider/TeacherInfoService/consumer/SalaryService/latest" \
   --provider-states-setup-url=http://localhost:8001/api/teachers/init \
   --provider-app-version $VERSION \
   --pact-broker-username pactbroker \
-  --pact-broker-password pactbroker \
-  --publish-verification-results
+  --pact-broker-password pactbroker
