@@ -22,16 +22,16 @@ def init():
             "id": 1,
             "name": "Doris Wilson",
             "class": [
-                "TILLETT",
-                "SANTA FE"
+                "Chinese",
+                "English"
             ]
         },
         {
             "id": 2,
             "name": "Mrs. A. T. Whitecotton",
             "class": [
-                "SOUTH FORK",
-                "WAFER ASH"
+                "Physics",
+                "Chemistry"
             ]
         }
     ]
