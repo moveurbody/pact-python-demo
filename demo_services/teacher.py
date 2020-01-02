@@ -11,6 +11,18 @@ from flasgger import Swagger
 from flask import Flask, jsonify
 
 app = Flask(__name__)
+app.config['SWAGGER'] = {
+    'title': 'Teachers API Documents',
+    "specs": [
+            {
+                "endpoint": 'swagger',
+                "route": '/swagger.json',
+                "rule_filter": lambda rule: True,  # all in
+                "model_filter": lambda tag: True,  # all in
+            }
+        ],
+}
+
 Swagger(app)
 
 
@@ -49,9 +61,9 @@ def teachers():
     ---
     tags:
       - Get all teachers information
+    produces:
+    - application/json
     responses:
-      500:
-        description: Fail to get all teachers information
       200:
         description: Get all teachers information
         schema:
@@ -72,15 +84,16 @@ def teacher(teacher_id):
     ---
     tags:
       - Get all teachers information
+    produces:
+    - application/json
     parameters:
       - name: teacher_id
         in: path
-        type: integer
         required: true
+        type: integer
         description: teacher id
+        x-example: 1
     responses:
-      500:
-        description: Fail to get teacher's information
       200:
         description: Get teacher's information by id
         schema:
@@ -112,7 +125,7 @@ def teacher(teacher_id):
             break
 
     if info == {}:
-        return jsonify(info), 500
+        return jsonify(info), 400
     else:
         return jsonify(info), 200
 
