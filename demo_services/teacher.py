@@ -129,7 +129,7 @@ def teacher(teacher_id):
             break
 
     if info == {}:
-        return jsonify(info), 400
+        return jsonify(info), 500
     else:
         return jsonify(info), 200
 
