@@ -113,6 +113,10 @@ def teacher(teacher_id):
               items:
                 type: string
               default: ["English", "PE", "Math"]
+          required:
+            - id
+            - name
+            - class
     """
 
     with open("teacher.json", "r") as json_file:
