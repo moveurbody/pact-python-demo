@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Doris Wilson",
+    "class": [
+      "Chinese",
+      "English"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Mrs. A. T. Whitecotton",
+    "class": [
+      "Physics",
+      "Chemistry"
+    ]
+  }
+]
