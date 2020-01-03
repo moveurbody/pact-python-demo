@@ -1,0 +1,67 @@
+definitions:
+  student_information:
+    properties:
+      age:
+        default: 10
+        description: student's age
+        type: integer
+      class:
+        default:
+          - Chinese
+        description: student's classes
+        items:
+          type: string
+        type: array
+      id:
+        default: 1
+        description: student's id
+        type: integer
+      name:
+        default: Eric
+        description: student's name
+        type: string
+    required:
+      - id
+      - name
+      - class
+      - age
+info:
+  description: powered by Flasgger
+  termsOfService: /tos
+  title: Teachers API Documents
+  version: 0.0.1
+paths:
+  /api/students/:
+    get:
+      responses:
+        '200':
+          description: Get all students information
+          schema:
+            items:
+              $ref: '#/definitions/student_information'
+            type: array
+        '500':
+          description: Fail to get all students information
+      summary: Use the API to get all students information
+      tags:
+        - Get all students information
+  '/api/students/{student_id}':
+    get:
+      parameters:
+        - description: student id
+          in: path
+          name: student_id
+          required: true
+          type: integer
+          x-example: 1
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Get student's information by id
+          schema:
+            $ref: '#/definitions/student_information'
+      summary: Use the API to get student information by id
+      tags:
+        - Get all students information
+swagger: '2.0'
