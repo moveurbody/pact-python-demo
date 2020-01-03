@@ -10,6 +10,18 @@ from flasgger import Swagger
 from flask import Flask, jsonify
 
 app = Flask(__name__)
+app.config['SWAGGER'] = {
+    'title': 'Teachers API Documents',
+    "specs": [
+        {
+            "endpoint": 'swagger',
+            "route": '/swagger.json',
+            "rule_filter": lambda rule: True,  # all in
+            "model_filter": lambda tag: True,  # all in
+        }
+    ],
+}
+
 Swagger(app)
 
 
@@ -21,7 +33,7 @@ def init():
             "id": 1,
             "name": "Eric",
             "class": [
-                "TILLETT"
+                "Chinese"
             ],
             "age": 10
         },
@@ -29,8 +41,8 @@ def init():
             "id": 2,
             "name": "Jason",
             "class": [
-                "TILLETT",
-                "SANTA FE"
+                "Chinese",
+                "Chemistry"
             ],
             "age": 11
         }
@@ -72,15 +84,16 @@ def student(student_id):
     ---
     tags:
       - Get all students information
+    produces:
+      - application/json
     parameters:
       - name: student_id
         in: path
         type: integer
         required: true
         description: student id
+        x-example: 1
     responses:
-      500:
-        description: Fail to get student's information
       200:
         description: Get student's information by id
         schema:
@@ -93,17 +106,22 @@ def student(student_id):
             name:
               type: string
               description: student's name
-              default: Apple
+              default: Eric
             age:
               type: integer
               description: student's age
-              default: 8
+              default: 10
             class:
               type: array
               description: student's classes
               items:
                 type: string
-              default: ["English", "PE", "Math"]
+              default: ["Chinese"]
+          required:
+            - id
+            - name
+            - class
+            - age
     """
 
     with open("student.json", "r") as json_file:
