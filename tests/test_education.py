@@ -61,8 +61,8 @@ def test_student(pact_student):
         'age': SomethingLike(10)
     })
 
-    (pact_student.given('a simple json blob exists')
-     .upon_receiving('a query for the user Jonas')
+    (pact_student.given('some students information exist')
+     .upon_receiving('a query for all students information')
      .with_request(method='GET', path='/api/students/')
      .will_respond_with(200, body=expected))
 
@@ -79,7 +79,7 @@ def test_get_all_teachers(pact_teacher):
     })
 
     (pact_teacher.given('some teachers information exist')
-     .upon_receiving('a query for all teacher information')
+     .upon_receiving('a query for all teachers information')
      .with_request(method='GET', path='/api/teachers/')
      .will_respond_with(200, body=expected))
 

@@ -37,7 +37,7 @@ def test_get_exist_teacher_information_by_id(pact_teacher):
     expected = SomethingLike({
         'id': SomethingLike(1),
         'name': SomethingLike("Doris Wilson"),
-        'class': EachLike(SomethingLike('English'))
+        'class': EachLike(SomethingLike('Chinese'))
     })
 
     (pact_teacher.given('teacher id is existed')
