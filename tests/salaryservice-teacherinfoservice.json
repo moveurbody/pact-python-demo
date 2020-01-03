@@ -1,0 +1,70 @@
+{
+  "consumer": {
+    "name": "SalaryService"
+  },
+  "provider": {
+    "name": "TeacherInfoService"
+  },
+  "interactions": [
+    {
+      "description": "a query for teacher id 1",
+      "providerState": "teacher id is existed",
+      "request": {
+        "method": "GET",
+        "path": "/api/teachers/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "id": 1,
+          "name": "Doris Wilson",
+          "class": [
+            "Chinese"
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          },
+          "$.body.id": {
+            "match": "type"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.class": {
+            "min": 1
+          },
+          "$.body.class[*].*": {
+            "match": "type"
+          },
+          "$.body.class[*]": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a query for teacher id 3",
+      "providerState": "teacher id is not existed",
+      "request": {
+        "method": "GET",
+        "path": "/api/teachers/3"
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+        },
+        "body": {
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

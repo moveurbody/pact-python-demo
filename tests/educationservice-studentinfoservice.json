@@ -1,0 +1,61 @@
+{
+  "consumer": {
+    "name": "EducationService"
+  },
+  "provider": {
+    "name": "StudentInfoService"
+  },
+  "interactions": [
+    {
+      "description": "a query for the user Jonas",
+      "providerState": "a simple json blob exists",
+      "request": {
+        "method": "GET",
+        "path": "/api/students/"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": [
+          {
+            "id": 1,
+            "name": "Eric",
+            "class": [
+              "English"
+            ],
+            "age": 10
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          },
+          "$.body[*].id": {
+            "match": "type"
+          },
+          "$.body[*].name": {
+            "match": "type"
+          },
+          "$.body[*].class": {
+            "min": 1
+          },
+          "$.body[*].class[*].*": {
+            "match": "type"
+          },
+          "$.body[*].age": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
