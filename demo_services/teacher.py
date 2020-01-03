@@ -1,4 +1,3 @@
-#!/usr/env/bin python
 # -*- coding: utf-8 -*-
 # @Time    : 2019/12/24 下午3:42
 # @Author  : yu_hsuan_chen@trendmicro.com
@@ -14,13 +13,13 @@ app = Flask(__name__)
 app.config['SWAGGER'] = {
     'title': 'Teachers API Documents',
     "specs": [
-            {
-                "endpoint": 'swagger',
-                "route": '/swagger.json',
-                "rule_filter": lambda rule: True,  # all in
-                "model_filter": lambda tag: True,  # all in
-            }
-        ],
+        {
+            "endpoint": 'swagger',
+            "route": '/swagger.json',
+            "rule_filter": lambda rule: True,  # all in
+            "model_filter": lambda tag: True,  # all in
+        }
+    ],
 }
 
 Swagger(app)
@@ -85,7 +84,7 @@ def teacher(teacher_id):
     tags:
       - Get all teachers information
     produces:
-    - application/json
+      - application/json
     parameters:
       - name: teacher_id
         in: path
@@ -106,7 +105,7 @@ def teacher(teacher_id):
             name:
               type: string
               description: teacher's name
-              default: Apple
+              default: Doris Wilson
             class:
               type: array
               description: teacher's classes
