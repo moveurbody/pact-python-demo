@@ -48,7 +48,7 @@ def init():
         }
     ]
 
-    with open("teacher.json", "w") as json_file:
+    with open("student.json", "w") as json_file:
         json.dump(data, json_file)
 
     return jsonify({"states": "OK"})
