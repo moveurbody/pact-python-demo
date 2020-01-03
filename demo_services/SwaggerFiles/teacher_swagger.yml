@@ -1,0 +1,64 @@
+definitions:
+  teacher_information:
+    properties:
+      class:
+        default:
+          - English
+          - PE
+          - Math
+        description: teacher's classes
+        items:
+          type: string
+        type: array
+      id:
+        default: 1
+        description: teacher's id
+        type: integer
+      name:
+        default: Doris Wilson
+        description: teacher's name
+        type: string
+    required:
+      - id
+      - name
+      - class
+info:
+  description: powered by Flasgger
+  termsOfService: /tos
+  title: Teachers API Documents
+  version: 0.0.1
+paths:
+  /api/teachers/:
+    get:
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Get all teachers information
+          schema:
+            items:
+              $ref: '#/definitions/teacher_information'
+            type: array
+      summary: Use the API to get all teachers information
+      tags:
+        - Get all teachers information
+  '/api/teachers/{teacher_id}':
+    get:
+      parameters:
+        - description: teacher id
+          in: path
+          name: teacher_id
+          required: true
+          type: integer
+          x-example: 1
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Get teacher's information by id
+          schema:
+            $ref: '#/definitions/teacher_information'
+      summary: Use the API to get teacher's information by id
+      tags:
+        - Get all teachers information
+swagger: '2.0'
