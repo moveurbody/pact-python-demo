@@ -1,5 +1,6 @@
-pact-python demo
+Contract Test with Pact
 ================
+![image](MicroservicesExamples.png)
 
 This simple client/server implementation demos how pact-python can be used for a contract test.
 
