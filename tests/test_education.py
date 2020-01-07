@@ -12,18 +12,11 @@ from pact import EachLike, SomethingLike
 from pact.consumer import Consumer
 from pact.provider import Provider
 
-from pact_python_demo.client import UserClient
-
 PACT_MOCK_HOST = '127.0.0.1'
 PACT_MOCK_PORT_TEACHER = 8001
 PACT_MOCK_PORT_STUDENT = 8002
 PACT_DIR = os.path.dirname(os.path.realpath(__file__))
 print(PACT_DIR)
-
-
-@pytest.fixture
-def client():
-    return UserClient('http://{host}:{port}'.format(host=PACT_MOCK_HOST, port=PACT_MOCK_PORT_STUDENT))
 
 
 @pytest.fixture(scope='session')

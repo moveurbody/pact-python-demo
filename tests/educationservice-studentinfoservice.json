@@ -7,8 +7,8 @@
   },
   "interactions": [
     {
-      "description": "a query for the user Jonas",
-      "providerState": "a simple json blob exists",
+      "description": "a query for all students information",
+      "providerState": "some students information exist",
       "request": {
         "method": "GET",
         "path": "/api/students/"

@@ -7,7 +7,7 @@
   },
   "interactions": [
     {
-      "description": "a query for all teacher information",
+      "description": "a query for all teachers information",
       "providerState": "some teachers information exist",
       "request": {
         "method": "GET",

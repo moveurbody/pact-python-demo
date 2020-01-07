@@ -1,15 +1,18 @@
 Contract Test with Pact
 ================
-![image](MicroservicesExamples.png)
 
 This simple client/server implementation demos how pact-python can be used for a contract test.
-
 Further reading about pact is at https://docs.pact.io/ or https://docs.pact.io/blogs-videos-and-articles
 
-It has 3 components:
-* `pact_python_demo/user-app.py` -- a simple flask app that has a REST endpoint for `/users/<name>` which returns a JSON representation of a user
-* `pact_python_demo/client.py` -- a simple client that gets a user from user-app.
-* `tests/test_client.py` -- a set of test cases using pytest and pact-python to test a simple
+## Microservice examples
+![image](MicroservicesExamples.png)
+
+It has 4 components:
+* `demo_services/teacher.py` -- a simple flask app that has 3 REST endpoints returns a JSON representation of teacher's information
+* `demo_services/student.py` -- a simple flask app that has 3 REST endpoints returns a JSON representation of students' information
+* `tests/test_education.py` -- a set of test cases using pytest and pact-python to test a simple
+* `tests/test_salary.py` -- a set of test cases using pytest and pact-python to test a simple
+
 contract between the client and server.
 * `broker/` -- contains docker-compose files for a pact broker server
 
@@ -19,6 +22,17 @@ Set up your virtual environment with:
 $ pip install pipenv
 $ pipenv install
 ```
+
+## Setup pact broker
+
+you can try incorporating the pact broker in this process:
+
+Start the broker server:
+```
+$ cd broker
+$ docker-compose up
+```
+It's accessible at http://127.0.0.1 with username 'pactbroker' and password 'pactbroker'
 
 ## Creating/validating pacts without the broker
 
