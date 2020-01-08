@@ -10,4 +10,5 @@ pipenv run pact-verifier --provider-base-url=http://localhost:8001 \
   --provider-states-setup-url=http://localhost:8001/api/teachers/init \
   --provider-app-version $VERSION \
   --pact-broker-username pactbroker \
-  --pact-broker-password pactbroker
+  --pact-broker-password pactbroker \
+  --publish-verification-results
