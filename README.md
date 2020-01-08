@@ -106,3 +106,25 @@ $ pipenv run pact-verifier --provider-base-url=http://localhost:8001 \
   --provider-states-setup-url=http://localhost:8001/api/teachers/init \
   --provider-app-version 0.0.0.1
 ```
+
+
+Contract Test with Swagger
+================
+![image](ContractTestwithSwagger.png)
+
+#### Contract Test for Provider
+
+You have to fire up your server-side app
+
+Then, use Dredd to run the contract test with swagger document
+```
+$ sh run_dredd_verify_provider.sh
+```
+
+#### Contract Test for Consumer
+
+Use prism to fire up a mock server for consumer to verify the function
+```
+$ sh run_prism_verify_consumer.sh
+```
+
